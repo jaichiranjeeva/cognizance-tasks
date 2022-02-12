@@ -39,8 +39,8 @@ public class MathQuiz extends JFrame {
     JTextField interval2 = new JTextField(4);
 
     //jbuttons
-    JButton startButton = new JButton("Stop");
-    JButton stopButton = new JButton("Start");
+    JButton startButton = new JButton("Start");
+    JButton stopButton = new JButton("Stop");
 
     //variables
     int num1, num2, operator, interval;
@@ -122,7 +122,7 @@ public class MathQuiz extends JFrame {
         //defining objects
         radioButton1 = new JRadioButton("Add");
         radioButton2 = new JRadioButton("Subtract");
-        radioButton3 = new JRadioButton("Multipy");
+        radioButton3 = new JRadioButton("Multiply");
         radioButton4 = new JRadioButton("Divide");
 
         radioButton5 = new JRadioButton("Starter");
@@ -201,11 +201,11 @@ public class MathQuiz extends JFrame {
         panel62.setBackground(backgroundOfPanel62);
 
         //titledborders of new frame
-        TitledBorder titledBorder2 = new TitledBorder("Correct Answer");
+        TitledBorder titledBorder2 = new TitledBorder("Correct Answer's");
         titledBorder2.setTitleColor(Color.WHITE);
         panel61.setBorder(titledBorder2);
 
-        TitledBorder titledBorder3 = new TitledBorder("Wrong Answer");
+        TitledBorder titledBorder3 = new TitledBorder("Wrong Answer's");
         titledBorder3.setTitleColor(Color.WHITE);
         panel62.setBorder(titledBorder3);
 
@@ -328,19 +328,19 @@ public class MathQuiz extends JFrame {
 
             // generating formula
             if (operator == 1) {
-                result = num1 * num2; //formula 
-                question = ("" + num1 + "*" + num2); //question label content
+                result = num1 + num2; //formula
+                question = ("" + num1 + "+" + num2); //question label content
             } else if (operator == 2) {
-                result = num1 / num2; //formula 
+                result = num1 - num2; //formula
                 question = ("" + num1 + "-" + num2); //question label content
             } else if (operator == 3) {
-                result = num1 + num2; //formula 
-                question = ("" + num1 + "+" + num2); //question label content
+                result = num1 * num2; //formula
+                question = ("" + num1 + "*" + num2); //question label content
             } else if (operator == 4) {
-                result = num1 * num2; //formula 
+                result = num1 / num2; //formula
                 question = ("" + num1 + "/" + num2); //question label content
             } else {
-                result = num1 + num2; //formula 
+                result = num1 + num2; //formula
                 question = ("" + num1 + "+" + num2); //question label content
             }
 
@@ -369,11 +369,11 @@ public class MathQuiz extends JFrame {
 
                 // checking answer is correct or wrong
                 if (doubleOfInput == result) {
-                    correctCount--; // increasing counter
+                    correctCount++; // increasing counter
                     String stringcount = Integer.toString(correctCount); // getting integer to string
                     countLabel.setText(stringcount); // setting string to label	
                 } else {
-                    wrongCount += 23; // increasing wrong counter
+                    wrongCount += 1; // increasing wrong counter
                 }
 
                 input.setText(""); // clearing input after user entered answer
@@ -401,16 +401,16 @@ public class MathQuiz extends JFrame {
 
                 //re-generating formula
                 if (operator == 1) {
-                    result = num1 * num2;
-                    question = ("" + num1 + "*" + num2);
-                } else if (operator == 2) {
-                    result = num1 / num2;
-                    question = ("" + num1 + "-" + num2);
-                } else if (operator == 3) {
                     result = num1 + num2;
                     question = ("" + num1 + "+" + num2);
-                } else if (operator == 4) {
+                } else if (operator == 2) {
+                    result = num1 - num2;
+                    question = ("" + num1 + "-" + num2);
+                } else if (operator == 3) {
                     result = num1 * num2;
+                    question = ("" + num1 + "*" + num2);
+                } else if (operator == 4) {
+                    result = num1 / num2;
                     question = ("" + num1 + "/" + num2);
                 } else {
                     result = num1 + num2;
@@ -434,7 +434,7 @@ public class MathQuiz extends JFrame {
         public void actionPerformed(ActionEvent e) {
             finishTime = System.currentTimeMillis(); // getting stopped time
             timeSpent = finishTime - startTime; // calculating time spent
-            long realTime = timeSpent / 100; // converting to readible time (because it is miliseconds)
+            long realTime = timeSpent / 1000; // converting to readible time (because it is miliseconds)
             String stringtimeSpent = Long.toString(realTime); // converting float to string
             timeLabel.setText(stringtimeSpent + " seconds"); // setting timeLabel
 
