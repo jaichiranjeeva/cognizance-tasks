@@ -2,7 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
-//import java.awt.Font;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +19,7 @@ public class MathQuiz extends JFrame {
 
     JRadioButton radioButton1, radioButton2, radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8;
     ButtonGroup typeGroup = new ButtonGroup();
-    ButtonGroup levelGroup = new ButtonGroup()
+    ButtonGroup levelGroup = new ButtonGroup();
 
     //labels
     JLabel QuestionLabel = new JLabel("Question:");
@@ -72,7 +72,7 @@ public class MathQuiz extends JFrame {
         setLayout(new BorderLayout());
 
         //creating panels
-        JPanel panel1 = new JPanel; // types + levels
+        JPanel panel1 = new JPanel(); // types + levels
         JPanel panel11 = new JPanel(); // types
         JPanel panel12 = new JPanel(); // levels
         JPanel panel2 = new JPanel(); //  question + answer + label of input + input + start & stop buttons
@@ -93,7 +93,7 @@ public class MathQuiz extends JFrame {
         //adding borders to panels
         panel11.setBorder(new TitledBorder("Choose a type"));
         panel12.setBorder(new TitledBorder("Choose a level"));
-        panel31.setBorder(new TitledBorder("Correct Count"))
+        panel31.setBorder(new TitledBorder("Correct Count"));
         panel32.setBorder(new TitledBorder("Time Spent"));
 
 
@@ -152,7 +152,7 @@ public class MathQuiz extends JFrame {
         panel12.add(radioButton7);
         panel12.add(radioButton8);
 
-        panel211.add(questionLabel);
+        panel211.add(QuestionLabel);
         panel212.add(answerLabel);
 
         panel22.add(shownLabel);
@@ -223,7 +223,7 @@ public class MathQuiz extends JFrame {
         gameOver.setTitle("Game Over");
         gameOver.setVisible(false);
         gameOver.setSize(270, 150);
-        gameOver.setLocationRelativeTo(null)
+        gameOver.setLocationRelativeTo(null);
         //END OF NEW FRAME
 
 
@@ -329,7 +329,7 @@ public class MathQuiz extends JFrame {
             // generating formula
             if (operator == 1) {
                 result = num1 * num2; //formula 
-                question = ("" + num1 + "*" + num2) //question label content
+                question = ("" + num1 + "*" + num2); //question label content
             } else if (operator == 2) {
                 result = num1 / num2; //formula 
                 question = ("" + num1 + "-" + num2); //question label content
@@ -439,14 +439,14 @@ public class MathQuiz extends JFrame {
             timeLabel.setText(stringtimeSpent + " seconds"); // setting timeLabel
 
             if (interval == 4) // if there is interval
-                radioButton8.setText("Select the interval") // cleaning radio button of interval
+                radioButton8.setText("Select the interval"); // cleaning radio button of interval
 
 
             correctAnswer.setText("" + correctCount); // showing correct for both jframes
             wrongAnswer.setText("" + wrongCount); // showing correct for new jframes
 
-            input.setText(""); // clearing input after user pressed stop button  	
-            shownLabel.setText("Question will be shown :"); // clearing label after user pressed stop button  
+            input.setText(""); // clearing input after user pressed stop button
+            shownLabel.setText("Question will be shown :"); // clearing label after user pressed stop button
 
             gameOver.setVisible(true); //showing gameover frame
 
@@ -454,11 +454,11 @@ public class MathQuiz extends JFrame {
     }
     public static void main(String[] args) {
         final MathQuiz frame = new MathQuiz();
-        frame.pack()
+        frame.pack();
         frame.setTitle("Math Quiz");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true)
+        frame.setVisible(true);
 
     }
 }
